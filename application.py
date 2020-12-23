@@ -53,7 +53,7 @@ def random_result():
 @app.route("/<string:datecode>")
 def anydate(datecode):
     # Test captured month and day
-    datecode_len = len(datecode)
+    # datecode_len = len(datecode)
     month = datecode[:2]
     day = datecode[2:]
 
