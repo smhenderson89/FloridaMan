@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: pylint-protobuf
+Version: 0.13
+Summary: A plugin for making Pylint aware of the fields of protobuf-generated classes
+Home-page: https://github.com/nelfin/pylint-protobuf
+Author: Andrew Haigh
+Author-email: hello@nelf.in
+License: MIT
+Keywords: pylint,plugin,protobuf
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Quality Assurance
+Description-Content-Type: text/markdown
+Requires-Dist: astroid
+Requires-Dist: pylint
+
+pylint-protobuf
+===============
+
+`pylint-protobuf` is a Pylint plugin for making Pylint aware of generated
+fields from Protobuf types.
+
+## Usage
+
+    $ cat <<EOF >person.proto
+    message Person {
+      required string name = 1;
+      required int32 id = 2;
+      optional string email = 3;
+    }
+    EOF
+    $ cat <<EOF >example.py
+    from person_pb2 import Person
+    a = Person()
+    a.invalid_field = 123
+    EOF
+    $ protoc person.proto --python_out=.
+    $ pip install pylint-protobuf
+    $ pylint --load-plugins=pylint_protobuf example.py
+    ************* Module example
+    E:  4, 0: Field 'invalid_field' does not appear in the declared fields of
+    protobuf-generated class 'Person' and will raise AttributeError on access
+    (protobuf-undefined-attribute)
+
+    ------------------------------------
+    Your code has been rated at -6.67/10
+
+

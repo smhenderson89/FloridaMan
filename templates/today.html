@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Horoscope
+{% endblock %}
+
+{% block main %}
+
+<h3>The Flordia Man Horoscope for {{month}} - {{day}} are:</h3>
+<br>
+<table>
+    <tbody>
+    {% for query in querys%}
+        <tr>
+            {{ query[0].title() }} | <a href = "{{ query[1] }}">Link</a>
+            <br><br>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
