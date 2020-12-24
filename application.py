@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return redirect("/today")
 
 #Return horoscope for today's date'''
 @app.route("/today", methods = ["GET", "POST"])
@@ -60,8 +60,8 @@ def anydate(datecode):
     # Establish connection to SQL database
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
-
-    sql_day = str(int(day)) # Strip out leading zero from day
+        
+    sql_day = day.lstrip('0') # Strip out leading zero from day
     sql_date = str(month) + str(sql_day)
     
     querys = c.execute("SELECT title, url FROM headlines WHERE datecode = ?", (sql_date,))

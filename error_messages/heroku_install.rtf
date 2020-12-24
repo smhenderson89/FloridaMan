@@ -1,0 +1,74 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww23300\viewh13880\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 2020-12-23T17:36:04.000000+00:00 app[api]: Build started by user scott.mc.henderson@gmail.com\
+2020-12-23T17:36:31.463543+00:00 app[api]: Release v4 created by user scott.mc.henderson@gmail.com\
+2020-12-23T17:36:31.463543+00:00 app[api]: Deploy 3f2d25a5 by user scott.mc.henderson@gmail.com\
+2020-12-23T17:36:31.907719+00:00 heroku[web.1]: State changed from crashed to starting\
+2020-12-23T17:36:41.000000+00:00 app[api]: Build succeeded\
+2020-12-23T17:36:47.085222+00:00 heroku[web.1]: Starting process with command `gunicorn app:application`\
+2020-12-23T17:36:51.564118+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [4] [INFO] Starting gunicorn 20.0.4\
+2020-12-23T17:36:51.565308+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [4] [INFO] Listening at: http://0.0.0.0:50184 (4)\
+2020-12-23T17:36:51.565528+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [4] [INFO] Using worker: sync\
+2020-12-23T17:36:51.576494+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [10] [INFO] Booting worker with pid: 10\
+2020-12-23T17:36:51.585378+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [11] [INFO] Booting worker with pid: 11\
+2020-12-23T17:36:51.585960+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [10] [ERROR] Exception in worker process\
+2020-12-23T17:36:51.585961+00:00 app[web.1]: Traceback (most recent call last):\
+2020-12-23T17:36:51.585976+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker\
+2020-12-23T17:36:51.585976+00:00 app[web.1]: worker.init_process()\
+2020-12-23T17:36:51.585977+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 119, in init_process\
+2020-12-23T17:36:51.585977+00:00 app[web.1]: self.load_wsgi()\
+2020-12-23T17:36:51.585977+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi\
+2020-12-23T17:36:51.585978+00:00 app[web.1]: self.wsgi = self.app.wsgi()\
+2020-12-23T17:36:51.585978+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi\
+2020-12-23T17:36:51.585979+00:00 app[web.1]: self.callable = self.load()\
+2020-12-23T17:36:51.585979+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 49, in load\
+2020-12-23T17:36:51.585979+00:00 app[web.1]: return self.load_wsgiapp()\
+2020-12-23T17:36:51.585980+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp\
+2020-12-23T17:36:51.585980+00:00 app[web.1]: return util.import_app(self.app_uri)\
+2020-12-23T17:36:51.585980+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/util.py", line 358, in import_app\
+2020-12-23T17:36:51.585981+00:00 app[web.1]: mod = importlib.import_module(module)\
+2020-12-23T17:36:51.585981+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/importlib/__init__.py", line 126, in import_module\
+2020-12-23T17:36:51.585982+00:00 app[web.1]: return _bootstrap._gcd_import(name[level:], package, level)\
+2020-12-23T17:36:51.585982+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 994, in _gcd_import\
+2020-12-23T17:36:51.585982+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 971, in _find_and_load\
+2020-12-23T17:36:51.585983+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked\
+2020-12-23T17:36:51.586015+00:00 app[web.1]: ModuleNotFoundError: No module named 'app'\
+2020-12-23T17:36:51.586269+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [10] [INFO] Worker exiting (pid: 10)\
+2020-12-23T17:36:51.600250+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [11] [ERROR] Exception in worker process\
+2020-12-23T17:36:51.600252+00:00 app[web.1]: Traceback (most recent call last):\
+2020-12-23T17:36:51.600252+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker\
+2020-12-23T17:36:51.600253+00:00 app[web.1]: worker.init_process()\
+2020-12-23T17:36:51.600253+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 119, in init_process\
+2020-12-23T17:36:51.600254+00:00 app[web.1]: self.load_wsgi()\
+2020-12-23T17:36:51.600254+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi\
+2020-12-23T17:36:51.600255+00:00 app[web.1]: self.wsgi = self.app.wsgi()\
+2020-12-23T17:36:51.600258+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/base.py", line 67, in wsgi\
+2020-12-23T17:36:51.600259+00:00 app[web.1]: self.callable = self.load()\
+2020-12-23T17:36:51.600259+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 49, in load\
+2020-12-23T17:36:51.600260+00:00 app[web.1]: return self.load_wsgiapp()\
+2020-12-23T17:36:51.600260+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/app/wsgiapp.py", line 39, in load_wsgiapp\
+2020-12-23T17:36:51.600261+00:00 app[web.1]: return util.import_app(self.app_uri)\
+2020-12-23T17:36:51.600261+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/site-packages/gunicorn/util.py", line 358, in import_app\
+2020-12-23T17:36:51.600261+00:00 app[web.1]: mod = importlib.import_module(module)\
+2020-12-23T17:36:51.600262+00:00 app[web.1]: File "/app/.heroku/python/lib/python3.6/importlib/__init__.py", line 126, in import_module\
+2020-12-23T17:36:51.600263+00:00 app[web.1]: return _bootstrap._gcd_import(name[level:], package, level)\
+2020-12-23T17:36:51.600263+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 994, in _gcd_import\
+2020-12-23T17:36:51.600263+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 971, in _find_and_load\
+2020-12-23T17:36:51.600264+00:00 app[web.1]: File "<frozen importlib._bootstrap>", line 953, in _find_and_load_unlocked\
+2020-12-23T17:36:51.600276+00:00 app[web.1]: ModuleNotFoundError: No module named 'app'\
+2020-12-23T17:36:51.600692+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [11] [INFO] Worker exiting (pid: 11)\
+2020-12-23T17:36:51.779361+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [4] [INFO] Shutting down: Master\
+2020-12-23T17:36:51.780292+00:00 app[web.1]: [2020-12-23 17:36:51 +0000] [4] [INFO] Reason: Worker failed to boot.\
+2020-12-23T17:36:51.971468+00:00 heroku[web.1]: Process exited with status 3\
+2020-12-23T17:36:52.185508+00:00 heroku[web.1]: State changed from starting to crashed\
+2020-12-23T17:36:52.907011+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=greatscottcodes.herokuapp.com request_id=15f98137-deed-44bc-a7e3-90febfa36964 fwd="24.5.93.66" dyno= connect= service= status=503 bytes= protocol=https\
+2020-12-23T17:36:53.855306+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=greatscottcodes.herokuapp.com request_id=7606a9d1-8d8c-4476-b761-c6ba45285313 fwd="24.5.93.66" dyno= connect= service= status=503 bytes= protocol=https\
+2020-12-23T17:36:55.857474+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=greatscottcodes.herokuapp.com request_id=43047145-be2a-4c5f-aa96-0e1ec29b1c82 fwd="24.5.93.66" dyno= connect= service= status=503 bytes= protocol=https\
+2020-12-23T17:36:56.330014+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=greatscottcodes.herokuapp.com request_id=ad87d031-c841-48d8-83dd-31461840bb18 fwd="24.5.93.66" dyno= connect= service= status=503 bytes= protocol=https\
+2020-12-23T17:37:06.195565+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/" host=greatscottcodes.herokuapp.com request_id=f5cb7adc-e1b5-4777-abe3-59acc494f527 fwd="24.5.93.66" dyno= connect= service= status=503 bytes= protocol=https\
+2020-12-23T17:37:07.277989+00:00 heroku[router]: at=error code=H10 desc="App crashed" method=GET path="/favicon.ico" host=greatscottcodes.herokuapp.com request_id=9d6bef50-2562-484c-9940-301459723723 fwd="24.5.93.66" dyno= connect= service= status=503 bytes= protocol=https}
