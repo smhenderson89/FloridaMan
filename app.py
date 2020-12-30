@@ -1,5 +1,5 @@
 from cs50 import SQL
-from flask import Flask, redirect, url_for, render_template
+from flask import Flask, flash, redirect, url_for, render_template, request
 import sqlite3
 from florida_scrape import florida_results
 from datetime import date
@@ -52,30 +52,65 @@ def random_result():
 # Return horoscope for specified day
 @app.route("/<string:datecode>")
 def anydate(datecode):
-    # Test captured month and day
-    # datecode_len = len(datecode)
-    month = datecode[:2]
-    day = datecode[2:]
+    if len(datecode) == 4:
+        # Test captured month and day
+        # datecode_len = len(datecode)
+        month = datecode[:2]
+        day = datecode[2:]
 
-    # Establish connection to SQL database
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
+        # Establish connection to SQL database
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+            
+        sql_day = day.lstrip('0') # Strip out leading zero from day
+        sql_date = str(month) + str(sql_day)
         
-    sql_day = day.lstrip('0') # Strip out leading zero from day
-    sql_date = str(month) + str(sql_day)
-    
-    querys = c.execute("SELECT title, url FROM headlines WHERE datecode = ?", (sql_date,))
+        querys = c.execute("SELECT title, url FROM headlines WHERE datecode = ?", (sql_date,))
 
-    return render_template("anydate.html", month = month, day = day, querys = querys)
+        return render_template("anydate.html", month = month, day = day, querys = querys)
+    else:
+        return render_template("today.html")
+
+@app.route("/birthday", methods = ["GET", "POST"])
+def birthday():
+    if request.method == "POST":
+        if not request.form.get("birthday"):
+        # TODO: Sometime button doesn't return with any information
+            # flash("Please provide birthday")
+            return render_template("today.html")
+        else:
+            birthday_input = request.form.get("birthday") # Capture inputted DOB '2020-12-28'
+            birthday_split = birthday_input.split('-')  # Split DOB into list of year, month, day
+            if len(birthday_split) == 3:    # If month
+                day = birthday_split[2]
+                month = birthday_split[1]
+
+                # Establish connection to SQL database
+                conn = sqlite3.connect('database.db')
+                c = conn.cursor()
+
+                # Search database for results
+                sql_day = day.lstrip('0') # Strip out leading zero from day
+                sql_date = str(month) + str(sql_day)
+        
+                querys = c.execute("SELECT title, url FROM headlines WHERE datecode = ?", (sql_date,))
+
+                # flash("Success!")
+                return render_template("birthday.html", month = month, day = day, querys = querys)
+            else:
+                return render_template("today.html", dob = birthday_split)
+    else:
+        return render_template("today.html")
+
 
 @app.route("/archive", methods = ["GET", "POST"])
 def archive():
     return render_template("archive.html")
 
 # TODO:
-    # Fillable form to serach date
     # Search date within the search bar
     # Setup archvie page to access any date of the year (show )
+    # Word cloud???
 
 
 

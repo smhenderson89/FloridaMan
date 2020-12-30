@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Birthday
+{% endblock %}
+
+
+{% block main %}
+
+<h3> Congrats! Your Birthday Flordia Man Horoscope for {{month}} - {{day}} are:</h3>
+<p id ="dob"></p>
+<br>
+<table>
+    <tbody>
+    {% for query in querys%}
+        <tr>
+            {{ query[0].title() }} | <a href = "{{ query[1] }}">Link</a>
+            <br><br>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<form action="/birthday">
+    <label for="birthday">Enter in Birthday:</label>
+    <input type="date" id="birthday" name="birthday">
+    <input type="submit" value="Submit">
+  </form>
+  
+{% endblock %}
+
+
+
+
