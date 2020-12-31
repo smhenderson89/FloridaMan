@@ -1,12 +1,13 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Horoscope
+    Today
 {% endblock %}
 
 {% block main %}
 
-<h3>The Flordia Man Horoscope for {{month}} - {{day}} are:</h3>
+<h3>The Flordia Man Horoscopes for {{month}} - {{day}} are:</h3>
+<p>{{test}}</p>
 <br>
 <table>
     <tbody>
@@ -18,12 +19,13 @@
     {% endfor %}
     </tbody>
 </table>
-<h5>Enter in Birthday:<h5>
-<form action="/birthday" method="post">
-
+<br>Enter in Birthday:
+<br>
+<br>
+<form action="/birthday" method = "post">
     <input type="date" id="birthday" name="birthday">
     <input type="submit" value="Submit">
-</form>
+  </form>
 
 {% endblock %}
 

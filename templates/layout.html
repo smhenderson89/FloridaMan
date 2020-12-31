@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Flask app</title>
+  <title>Florida Man Horoscope</title>
   <link ref="style"    
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <!-- documentation at http://getbootstrap.com/docs/4.1/, alternative themes at https://bootswatch.com/ -->
+        
+        <!-- https://favicon.io/emoji-favicons/money-mouth-face/ -->
+        <link href="/static/favicon.ico" rel="icon">
+
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/static/styles.css" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -15,7 +20,6 @@
     <body>
         <h1>Florida Man Horoscope</h1>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="/">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -26,37 +30,37 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="/random">Random</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Archive</a>
-                  </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/about">About</a>
+                </li>
               </ul>
             </div>
           </nav>
 
-          {% with messages = get_flashed_messages(category_filter=["success"]) %}
-            {% if messages %}
-              {% for message in messages %}
-                    <header>
-                      <div class="alert alert-success border text-center" role="alert">
-                          {{ get_flashed_messages() | join(" ") }}
-                      </div>
-                  </header>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
+  <!-- Import flask flash message for jinja -->
+        {% with messages = get_flashed_messages(category_filter=["success"]) %}
+          {% if messages %}
+            {% for message in messages %}
+                  <header>
+                    <div class="alert alert-success border text-center" role="alert">
+                        {{ get_flashed_messages() | join(" ") }}
+                    </div>
+                </header>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
 
-          {% with messages = get_flashed_messages(category_filter=["error"]) %}
-            {% if messages %}
-              {% for message in messages %}
-                    <header>
-                      <div class="alert alert-danger border text-center" role="alert">
-                          {{ get_flashed_messages() | join(" ") }}
-                      </div>
-                  </header>
-              {% endfor %}
-            {% endif %}
-          {% endwith %}
-
+        {% with messages = get_flashed_messages(category_filter=["error"]) %}
+          {% if messages %}
+            {% for message in messages %}
+                  <header>
+                    <div class="alert alert-danger border text-center" role="alert">
+                        {{ get_flashed_messages() | join(" ") }}
+                    </div>
+                </header>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
           <main class="container p-5">
               {% block main %}{% endblock %}
           </main>

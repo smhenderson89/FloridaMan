@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    About
+{% endblock %}
+
+{% block main %}
+
+<h5>So What Is This Thing Exactly?</h5>
+<img src="https://pbs.twimg.com/profile_images/1189570815840280578/jgLGCImD_400x400.jpg"
+  alt="Yep, that's me!" style = "width:200px;height:200px;" class = "resonsive"/>
+<br><br>
+<p>This website is my Final Project for <a href = "https://www.edx.org/course/cs50s-introduction-to-computer-science">CS50 Edx Course 2020.</a> 
+<br>    
+<p>My goal was to create a website that would show a user their "Flordia Man Horoscope", which I had learned about years back. A Flordia Man Horoscope is created by 
+    typing in your date of birthday into Google + <a href="http://letmegooglethat.com/?q=Dec+30+florida+man">"Florida Man"</a> and the list of headlines that return are your horoscope. 
+    (Here's an <a href="https://greatscottcodes.herokuapp.com/random">example</a>.)</p>
+
+<p>To accomplish this I built a <a href="https://en.wikipedia.org/wiki/Web_scraping">web-scraper</a> that would search for 'Florida Man' headlines and save the results from every day of the year (including leap year). I put those results into a database and any user can query them while searching the website.</p>
+<p>Tools I used to create website:</p>
+<ul>
+    <li>Python (<a href = "https://www.python.org/">link</a>)</li>
+    <li>Sqlite3 (<a href = "https://www.sqlite.org/index.html">link</a>)</li>
+    <li>Flask (<a href = "https://flask.palletsprojects.com/en/1.1.x/">link</a>)</li>
+    <li>Heroku (<a href = "https://dashboard.heroku.com/">link</a>)</li>
+    <li>VS Code (<a href = "https://code.visualstudio.com/">link</a>)</li>
+</ul>
+<p>Thanks to all the mods and students from CS50 Discord who helped me along the way!</p>
+{% endblock %}
+
+
+
+

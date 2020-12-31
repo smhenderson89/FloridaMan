@@ -58,6 +58,3 @@ main tfoot{
     height: 600px;
     background-color: #f2f2f2;
 }
-
-/* Remove year for calendar picker */
-.ui-datepicker-year{display: none}

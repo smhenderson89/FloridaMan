@@ -7,8 +7,7 @@
 
 {% block main %}
 
-<h3> Congrats! Your Birthday Flordia Man Horoscope for {{month}} - {{day}} are:</h3>
-<p id ="dob"></p>
+<h3> Congrats! Your Birthday Flordia Man Horoscopes for {{month}} - {{day}} are:</h3>
 <br>
 <table>
     <tbody>
@@ -21,12 +20,8 @@
     </tbody>
 </table>
 
-<br>Enter in Birthday:
-<br>
-<br>
-<form action="/birthday">
-    <input type="date" id="birthday" name="birthday">
-    <input type="submit" value="Submit">
+<form action="/today" method = "post">
+    <input type="submit" value="Return to homepage">
   </form>
   
 {% endblock %}
