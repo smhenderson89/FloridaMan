@@ -41,9 +41,16 @@ def today():
 def random_result():
 
     # Determine valid random month and day
+
+    # Intialize random seed
+    seed = random.randint(1, 1000)
+    random.seed(seed)
+
+    # Determine random day
     start_date = date.today().replace(day=1, month=1).toordinal()
     end_date = date.today().toordinal()
     random_day = date.fromordinal(random.randint(start_date, end_date))
+    
     split_date = str(random_day).split('-')
     month = split_date[1]
     day = split_date[2]
