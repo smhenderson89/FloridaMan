@@ -48,7 +48,7 @@ def random_result():
 
     # Determine random day
     start_date = date.today().replace(day=1, month=1).toordinal()
-    end_date = date.today().toordinal()
+    end_date = date.today().replace(day=31, month=12).toordinal()
     random_day = date.fromordinal(random.randint(start_date, end_date))
     
     split_date = str(random_day).split('-')
