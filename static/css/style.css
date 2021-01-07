@@ -59,6 +59,14 @@ main tfoot{
     background-color: #f2f2f2;
 }
 
-input {
-    width: 25%
+input 
+{
+    width: 25%;
+    margin: 8px;
+}
+
+input[type="date"]
+{
+    width: 25%;
+    margin: 8px 0;
 }
