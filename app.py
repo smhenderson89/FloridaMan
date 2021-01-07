@@ -21,7 +21,6 @@ def home():
 #Return horoscope for today's date'''
 @app.route("/today", methods = ["GET", "POST"])
 def today():
-    get_flashed_messages()
 
     # Calculate today's date adjusted for PST
     date_format='%m-%d'
@@ -89,9 +88,7 @@ def anydate(datecode):
 def birthday():
     if request.method == "POST":
         if request.form.get("birthday") == "":
-            flash('Please submit a date')
-            # TODO: flash("Please provide birthday")
-            return render_template("today.html")
+            return redirect("today.html")
         else:
             birthday_input = request.form.get("birthday") # Capture inputted DOB '2020-12-28'
             birthday_split = birthday_input.split('-')  # Split DOB into list of year, month, day
@@ -128,7 +125,6 @@ def about():
     # Setup archvie page to access any date of the year (show )
     # Word cloud???
     # Send Tweet to twitter account
-
 
 
 if __name__ == "__main__":

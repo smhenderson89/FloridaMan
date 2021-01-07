@@ -58,3 +58,7 @@ main tfoot{
     height: 600px;
     background-color: #f2f2f2;
 }
+
+input {
+    width: 25%
+}
