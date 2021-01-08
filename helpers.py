@@ -1,4 +1,5 @@
 import sqlite3
+from flask import request
 
 def database_query(month, day):
     # Make connection to database
@@ -11,3 +12,14 @@ def database_query(month, day):
     querys = c.execute("SELECT title, url FROM headlines WHERE datecode = ?", (sql_date,))
     return querys
 
+def detect():
+    browser = request.user_agent.browser
+    platform = request.user_agent.platform
+
+    if browser and platform:
+        if (platform == 'macos' or platform == 'windows' and browser == 'safari'):
+            return True
+        else:
+            return False
+
+    

@@ -7,7 +7,7 @@ from datetime import datetime
 from pytz import timezone
 import pytz
 import random
-from helpers import database_query
+from helpers import database_query, detect
 
 # Create connection to flask
 app = Flask(__name__)
@@ -32,7 +32,7 @@ def today():
 
     # Query database
     querys = database_query(month, day)
-
+    
     return render_template("today.html", month = month, day = day, querys = querys)
 
 # Return horoscope for a Random day
@@ -125,6 +125,7 @@ def about():
     # Setup archvie page to access any date of the year (show )
     # Word cloud???
     # Send Tweet to twitter account
+    # Detect Safari webpage, show hint for how to input dates
 
 
 if __name__ == "__main__":
