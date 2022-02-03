@@ -1,6 +1,8 @@
 # CS50_final_project
 Final Project for CS50x-2020
 
+https://fmanhoroscope.herokuapp.com/today
+
 This is my final project for CS50x, year 2020. 
 
 The goal of this project is to create a website that lists your Florida-Man Horoscope. To achieve this, I have created a web scraper for google results for 
