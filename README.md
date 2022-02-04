@@ -1,4 +1,4 @@
-# CS50_final_project
+# Florida Man Horoscope - A Python Web Scrapper
 Final Project for CS50x-2020
 
 https://fmanhoroscope.herokuapp.com/today
