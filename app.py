@@ -1,4 +1,3 @@
-from cs50 import SQL
 from flask import Flask, flash, redirect, url_for, render_template, request, get_flashed_messages
 import sqlite3
 from florida_scrape import florida_results
