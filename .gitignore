@@ -1,0 +1,5 @@
+# Ignore files to github
+
+__pychache__
+.venv
+venv
