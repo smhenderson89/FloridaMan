@@ -3,3 +3,4 @@
 __pychache__
 .venv
 venv
+.DS_Store
