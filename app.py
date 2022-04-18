@@ -121,6 +121,7 @@ def stats():
 @app.route("/about", methods = ["GET", "POST"])
 def about():
     return render_template("about.html")
+    
 # TODO:
     # Setup archvie page to access any date of the year (show )
     # Word cloud???
