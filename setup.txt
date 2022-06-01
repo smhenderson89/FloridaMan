@@ -7,3 +7,5 @@ On Windows:
 3) Setup Environmental varialbe: $env:FLASK_APP = "app"
 4) Launch Flask app: flask run
     Website should be running on localhost:5000
+
+How to exit virtual environment: deactivate

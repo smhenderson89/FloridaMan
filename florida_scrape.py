@@ -2,7 +2,8 @@
 # Scope - Program will scrape google search results for "Flordia Man + Month Day" where
 # Month and Day are inputted by a function florida_results(month, day)
 
-import requests, random
+import requests
+import random
 from bs4 import BeautifulSoup
 
 def florida_results(month, day):
