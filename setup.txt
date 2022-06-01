@@ -1,0 +1,9 @@
+How to load website locally 
+
+On Windows:
+
+1) Setup virtual environment: . venv/bin/activate
+2) Install all pip packages: pip install -r requirements.txt
+3) Setup Environmental varialbe: $env:FLASK_APP = "app"
+4) Launch Flask app: flask run
+    Website should be running on localhost:5000

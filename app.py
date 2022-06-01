@@ -7,12 +7,15 @@ from pytz import timezone
 import pytz
 import random
 from helpers import database_query, detect
+from dotenv import load_dotenv
+import os
 
 # Create connection to flask
 app = Flask(__name__)
 
-## app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-## test remove secret key
+# Setup session key
+load_dotenv()
+app.secret_key = os.getenv('SECRET_KEY')
 
 @app.route("/")
 def home():
