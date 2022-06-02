@@ -8,12 +8,21 @@
 
 <h3>Flordia Man Horoscopes for {{month}} - {{day}}:</h3>
 <br>
-<table>
+<table class = "table">
+    <thead>
+        <tr></tr>
+    </thead>
     <tbody>
     {% for query in querys%}
         <tr>
-            {{ query[0].title() }} | <a href = "{{ query[1] }}">Link</a>
-            <br>
+            <th scope="row">
+                <td>
+                    <a href = "{{ query[1] }}">Link</a>
+                </td>
+                <td>
+                    {{ query[0].title() }}  
+                </td>
+            </th>
         </tr>
     {% endfor %}
     </tbody>

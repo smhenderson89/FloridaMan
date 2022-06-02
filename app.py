@@ -38,6 +38,23 @@ def today():
     
     return render_template("today.html", month = month, day = day, querys = querys)
 
+# Test for v2 of today
+@app.route("/today2", methods = ["GET", "POST"])
+def today2():
+
+    # Calculate today's date adjusted for PST
+    date_format='%m-%d'
+    date = datetime.now(tz=pytz.utc)
+    date = date.astimezone(timezone('US/Pacific'))
+    month_day = date.strftime(date_format).split('-')
+    month = str(month_day[0])
+    day = month_day[1]
+
+    # Query database
+    querys = database_query(month, day)
+    
+    return render_template("today2.html", month = month, day = day, querys = querys)
+
 # Return horoscope for a Random day
 @app.route("/random", methods = ["GET", "POST"])
 def random_result():
@@ -111,16 +128,25 @@ def birthday():
         flash('Use form to sumbit date', 'error')
         return redirect("/today")
 
-@app.route("/stats", methods = ["GET", "POST"])
-def stats():
-    # Make connection to database
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
+# Possible Stats Page, not developed yet
 
-    num_entries = c.execute("SELECT COUNT(*) FROM headlines;")
+# @app.route("/stats", methods = ["GET", "POST"])
+# def stats():
+#     # Make connection to database
+#     conn = sqlite3.connect('database.db')
+#     c = conn.cursor()
 
-    return render_template("stats.html", entries = num_entries)
+#     num_entries = c.execute("SELECT COUNT(*) FROM headlines;")
 
+#     return render_template("stats.html", entries = num_entries)
+
+# Testing route for bootstrap/css resdesign
+@app.route("/testcss", methods = ["Get", "POST"])
+def testcss():
+    return render_template("testcss.html")
+
+
+# About page for the project
 @app.route("/about", methods = ["GET", "POST"])
 def about():
     return render_template("about.html")
