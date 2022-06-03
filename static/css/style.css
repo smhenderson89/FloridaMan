@@ -1,3 +1,25 @@
+:root {
+    --site-red: #cf1259;
+    --site-blue-sapphire: #0b4f6c;
+    --site-cyan: #01BAEF;
+    --site-white: #FBFBFF;
+    --site-black: #040F16;
+}
+
+/* navbar */
+
+.nav-link { /* Center links in navbar */
+    text-align: center;
+}
+
+
+/* Title */
+h1 {
+    text-align: center; 
+}
+
+/* main body */
+
 main .form-control
 {
     /* center form controls */
@@ -32,6 +54,17 @@ table
     border-spacing: 2px;
 }
 
+.table th, .table td {
+    border-top: none;
+}
+
+main tfoot{
+    font-weight: bold;
+
+}
+
+/* body */
+
 body
 {
     margin: 0;
@@ -44,10 +77,7 @@ body
     background-color: #fff;
 }
 
-main tfoot{
-    font-weight: bold;
-
-}
+/* scroll */
 
 .scroll {
     margin: auto;
@@ -59,6 +89,7 @@ main tfoot{
     background-color: #f2f2f2;
 }
 
+/* input */
 input 
 {
     width: 25%;
@@ -70,3 +101,6 @@ input[type="date"]
     width: 25%;
     margin: 8px 0;
 }
+
+
+

@@ -38,7 +38,7 @@ def today():
     
     return render_template("today.html", month = month, day = day, querys = querys)
 
-# Test for v2 of today
+# Test for v2 of today for updated CSS
 @app.route("/today2", methods = ["GET", "POST"])
 def today2():
 
