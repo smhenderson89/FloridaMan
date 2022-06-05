@@ -4,6 +4,15 @@
     --site-cyan: #01BAEF;
     --site-white: #FBFBFF;
     --site-black: #040F16;
+
+    --site-dark-orange: #ff5400;
+    --site-light-orange: #ff8500;
+    --site-orange-peel: #ff9e00;
+    --site-crystal: #00b4b8;
+    --site-dark-crystal: #0077b6;
+    --site-navy-blue: #03045E;
 }
 
 /* Color reference: https://coolors.co/cf1259-0b4f6c-01baef-fbfbff-040f16 */
+
+/* Second reference: https://coolors.co/53dd6c-0b4f6c-01baef-fbfbff-040f16 */
