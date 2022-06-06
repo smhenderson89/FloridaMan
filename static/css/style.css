@@ -76,6 +76,10 @@ table
     border-top: none;
 }
 
+.table td a {
+    font-weight: bold;
+}
+
 main tfoot{
     font-weight: bold;
 

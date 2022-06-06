@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+var monthObject = {
+  "January": 31, "February":  29, "March": 31, "April" : 30, "May" : 31, "June" : 30,
+  "July" : 31, "August" : 31, "September" : 30, "October" : 31, "November" : 30, "December" : 31
+}
+window.onload = function() {
+  var monthSel = document.getElementById("month");
+  var daySel = document.getElementById("day");
+  
+  // Establish subject dropdown menu
+  for (var x in monthObject) {
+    monthSel.options[monthSel.options.length] = new Option(x, x);
+  }
+  monthSel.onchange = function() {
+    // Reset day options
+    daySel.length = 1;
+    // Display correct day values based on month
+    var daysinMonth = monthObject[monthSel.value];
+    console.log(daysinMonth);
+    for (let i = 1; i <= daysinMonth; i++) {
+      daySel.options[i] = new Option(i, i)
+    }
+  }
+}
+
+function showValues() {
+
+}
+</script>
+</head>   
+<body>
+
+<h1>Month/Day Selector Form</h1>
+
+<form name="form1" id="form1" method = "GET" onsubmit="showValues()">
+Month: <select name="month" id="month">
+    <option value="" selected="selected">Month</option>
+  </select>
+  <br><br>
+Day: <select name="day" id="day">
+    <option value="" selected="selected">Day</option>
+  </select>
+  <br><br>
+  <input type="submit" value="Submit">  
+</form>
+
+</body>
+</html>
