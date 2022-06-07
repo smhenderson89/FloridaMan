@@ -16,9 +16,9 @@ window.onload = function() {
     monthSel.options[monthSel.options.length] = new Option(x, x);
   }
   monthSel.onchange = function() {
-    // Reset day options
-    daySel.length = 1;
-    // Display correct day values based on month
+    daySel.length = 1; // Reset day options to base
+
+    // Display correct days per month
     var daysinMonth = monthObject[monthSel.value];
     console.log(daysinMonth);
     for (let i = 1; i <= daysinMonth; i++) {
@@ -28,25 +28,32 @@ window.onload = function() {
 }
 
 function showValues() {
-
+  event.preventDefault()
+  monthStringForm = document.getElementById("month").value;
+  dayIntForm = document.getElementById("day").value;
+  document.getElementById("month-value").innerHTML = monthStringForm;
+  document.getElementById("day-value").innerHTML = dayIntForm; 
+  console.log(monthStringForm + " " + dayIntForm);
 }
 </script>
 </head>   
 <body>
 
 <h1>Month/Day Selector Form</h1>
+<p>Select your Birthday</p>
 
 <form name="form1" id="form1" method = "GET" onsubmit="showValues()">
-Month: <select name="month" id="month">
-    <option value="" selected="selected">Month</option>
+  <select name="month" id="month">
+          <option value="" selected="selected">Month</option>
   </select>
-  <br><br>
-Day: <select name="day" id="day">
-    <option value="" selected="selected">Day</option>
+  <select name="day" id="day">
+      <option value="" selected="selected">Day</option>
   </select>
-  <br><br>
-  <input type="submit" value="Submit">  
+    <input type="submit" value="Submit">  
 </form>
+
+<div>Month</div><div id="month-value"></div>
+<div>Day</div><div id="day-value"></div>
 
 </body>
 </html>

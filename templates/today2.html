@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends "layout_v2.html" %}
 
 {% block title %}
     Today
@@ -40,17 +40,22 @@
   <p>Safari Desktop Users: Input date as YY-MM-DD</p>
 
 
-<form name="monthDayform" id="monthDayform" action="">
-    M: <select name="monthrange" id="monthrange">
-        <option value="" selected="selected">Month:</option>
-      </select>
-      <br><br>
-    D: <select name="dayrange" id="dayrange">
+  <h1>Month/Day Selector Form</h1>
+  <p>Select your Birthday</p>
+  
+  <form name="birthday2" id="form1" action ="/birthday2" method = "POST">
+    <select name="month" id="month">
+            <option value="" selected="selected">Month</option>
+    </select>
+    <select name="day" id="day">
         <option value="" selected="selected">Day</option>
-      </select>
-      <br><br>
-    <input type = "submit" value = "M/D Submit">
-</form>
+    </select>
+      <input type="submit" value="Submit">  
+  </form>
+    
+    </body>
+  </html>
+  
 
 {% endblock %}
 

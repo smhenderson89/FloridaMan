@@ -128,6 +128,34 @@ def birthday():
         flash('Use form to sumbit date', 'error')
         return redirect("/today")
 
+# Second verison of birthday with revamped form
+@app.route("/birthday2", methods = ["GET", "POST"])
+def birthday2():
+    if request.method == "POST":
+        if request.form.get("birthday2") == "":
+            return redirect("today.html")
+        else:
+            formStringMonth = request.form.get("month")
+            formIntDay = request.form.get("day")
+            # Convert month from string to int
+            monthSwitch = {"January": "01", "February": "02", "March": "03", "April" : "04", 
+            "May" : "05", "June" : "06", "July" : "07", "August" : "08", 
+            "September" : "09", "October" : "10", "November" : "11", "December" : "12"}
+            formIntMonth = monthSwitch[formStringMonth]
+            querys = (formStringMonth, formIntDay)
+            return "Month: " + formIntMonth + "Day: " + formIntDay
+                # # Query database
+                # querys = database_query(month, day)
+                # flash('Success!', 'success')
+                # return render_template("birthday.html", month = month, day = day, querys = querys, test = birthday_input)
+            # else:
+                # # Query database
+                # querys = database_query(month, day)
+                # return render_template("birthday.html", month = month, day = day, querys = querys, test = birthday_input)
+
+    else:
+        flash('Use form to sumbit date', 'error')
+        return redirect("/today")
 # Possible Stats Page, not developed yet
 
 # @app.route("/stats", methods = ["GET", "POST"])
