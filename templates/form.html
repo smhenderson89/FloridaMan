@@ -35,6 +35,14 @@ function showValues() {
   document.getElementById("day-value").innerHTML = dayIntForm; 
   console.log(monthStringForm + " " + dayIntForm);
 }
+
+function formValdiation() {
+  // Check on mouse click
+  // Check if month and date are default values
+  // If Month and date are valid options, remove disable submit for html
+  //    If Month != "Month" && Day != "Day"
+  //    document.removeAttr('disabled') for submit button 
+}
 </script>
 </head>   
 <body>
@@ -50,6 +58,19 @@ function showValues() {
       <option value="" selected="selected">Day</option>
   </select>
     <input type="submit" value="Submit">  
+</form>
+
+<div>Month</div><div id="month-value"></div>
+<div>Day</div><div id="day-value"></div>
+
+<form name="form2" id="form1" method = "GET" onsubmit="showValues()">
+  <select name="month" id="month">
+          <option value="" selected="selected">Month</option>
+  </select>
+  <select name="day" id="day">
+      <option value="" selected="selected">Day</option>
+  </select>
+    <input type="submit" value="Submit" disabled="disabled">  
 </form>
 
 <div>Month</div><div id="month-value"></div>

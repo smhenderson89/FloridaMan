@@ -118,11 +118,11 @@ def birthday():
                 # Query database
                 querys = database_query(month, day)
                 flash('Success!', 'success')
-                return render_template("birthday.html", month = month, day = day, querys = querys, test = birthday_input)
+                return render_template("birthday.html", month = month, day = day, querys = querys)
             else:
                 # Query database
                 querys = database_query(month, day)
-                return render_template("birthday.html", month = month, day = day, querys = querys, test = birthday_input)
+                return render_template("birthday.html", month = month, day = day, querys = querys)
 
     else:
         flash('Use form to sumbit date', 'error')
@@ -142,20 +142,22 @@ def birthday2():
             "May" : "05", "June" : "06", "July" : "07", "August" : "08", 
             "September" : "09", "October" : "10", "November" : "11", "December" : "12"}
             formIntMonth = monthSwitch[formStringMonth]
-            querys = (formStringMonth, formIntDay)
+            querys = (formIntMonth, formIntDay)
             return "Month: " + formIntMonth + "Day: " + formIntDay
                 # # Query database
                 # querys = database_query(month, day)
                 # flash('Success!', 'success')
-                # return render_template("birthday.html", month = month, day = day, querys = querys, test = birthday_input)
+                # return render_template("birthday.html", month = month, day = day, querys = querys)
             # else:
                 # # Query database
                 # querys = database_query(month, day)
-                # return render_template("birthday.html", month = month, day = day, querys = querys, test = birthday_input)
+                # return render_template("birthday.html", month = month, day = day, querys = querys)
 
     else:
         flash('Use form to sumbit date', 'error')
         return redirect("/today")
+
+        
 # Possible Stats Page, not developed yet
 
 # @app.route("/stats", methods = ["GET", "POST"])
