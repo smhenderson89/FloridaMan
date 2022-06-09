@@ -10,6 +10,9 @@ var monthObject = {
 window.onload = function() {
   var monthSel = document.getElementById("month");
   var daySel = document.getElementById("day");
+  var submitButton = document.getElementById("submit-button");
+  var daySearch = "";
+  var monthSearch = "";
   
   // Establish subject dropdown menu
   for (var x in monthObject) {
@@ -18,14 +21,38 @@ window.onload = function() {
   monthSel.onchange = function() {
     daySel.length = 1; // Reset day options to base
 
+
     // Display correct days per month
     var daysinMonth = monthObject[monthSel.value];
-    console.log(daysinMonth);
     for (let i = 1; i <= daysinMonth; i++) {
       daySel.options[i] = new Option(i, i)
     }
   }
+
+  // When daySel change, 
+  daySearch.onchange = function () {
+    console.log('Month Selected:', monthSearch );
+    console.log("Day Selected:", daySearch);
+  }
 }
+
+// Check when options are selected, if both non deafult and then activate 
+
+function enableSubmit() {
+  var monthSel = document.getElementById("month");
+  var daySel = document.getElementById("day");
+  
+// On month or day dropdown change
+// Enable submit button if valid options select
+  console.log('selection changing!')
+  monthOption = document.getElementById("month-value").innerHTML;
+  dayOption = document.getElementById("day-value").innerHTML;
+  console.log("Month Option: ",monthOption);
+  console.log("Day Option: ", dayOption);
+    if (monthOption != "" || dayOption != "") {
+      submitButton.removeAttribute('disabled'); // Enable submit button
+    }
+  }
 
 function showValues() {
   event.preventDefault()
@@ -36,7 +63,13 @@ function showValues() {
   console.log(monthStringForm + " " + dayIntForm);
 }
 
-function formValdiation() {
+function activateButton() {
+  var monthSel = document.getElementById("month");
+  var daySel = document.getElementById("day");
+  // If non deafult options are selected, then activate submit button
+  // Else, keeep button deactivate (i.e. do nothing)
+  
+
   // Check on mouse click
   // Check if month and date are default values
   // If Month and date are valid options, remove disable submit for html
@@ -50,7 +83,7 @@ function formValdiation() {
 <h1>Month/Day Selector Form</h1>
 <p>Select your Birthday</p>
 
-<form name="form1" id="form1" method = "GET" onsubmit="showValues()">
+<!-- <form name="form1" id="form1" method = "GET" onsubmit="showValues()">
   <select name="month" id="month">
           <option value="" selected="selected">Month</option>
   </select>
@@ -58,10 +91,10 @@ function formValdiation() {
       <option value="" selected="selected">Day</option>
   </select>
     <input type="submit" value="Submit">  
-</form>
-
+</form> -->
+<!-- 
 <div>Month</div><div id="month-value"></div>
-<div>Day</div><div id="day-value"></div>
+<div>Day</div><div id="day-value"></div> -->
 
 <form name="form2" id="form1" method = "GET" onsubmit="showValues()">
   <select name="month" id="month">
@@ -70,10 +103,10 @@ function formValdiation() {
   <select name="day" id="day">
       <option value="" selected="selected">Day</option>
   </select>
-    <input type="submit" value="Submit" disabled="disabled">  
+    <input type="submit" id = "submit-button" value="Submit" disabled="disabled"> 
 </form>
-
-<div>Month</div><div id="month-value"></div>
+<br>
+<div>Month</div><div id="month-value"></div><br>
 <div>Day</div><div id="day-value"></div>
 
 </body>
