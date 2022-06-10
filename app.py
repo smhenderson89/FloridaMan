@@ -38,23 +38,6 @@ def today():
     
     return render_template("today.html", month = month, day = day, querys = querys)
 
-# Test for v2 of today for updated CSS
-@app.route("/today2", methods = ["GET", "POST"])
-def today2():
-
-    # Calculate today's date adjusted for PST
-    date_format='%m-%d'
-    date = datetime.now(tz=pytz.utc)
-    date = date.astimezone(timezone('US/Pacific'))
-    month_day = date.strftime(date_format).split('-')
-    month = str(month_day[0])
-    day = month_day[1]
-
-    # Query database
-    querys = database_query(month, day)
-    
-    return render_template("today2.html", month = month, day = day, querys = querys)
-
 # Return horoscope for a Random day
 @app.route("/random", methods = ["GET", "POST"])
 def random_result():
@@ -104,55 +87,30 @@ def anydate(datecode):
         flash('Date invalid, must input /MMDD', 'error')
         return redirect("/today")
 
+# Second verison of birthday with revamped navbar form
 @app.route("/birthday", methods = ["GET", "POST"])
-def birthday():
-    if request.method == "POST":
-        if request.form.get("birthday") == "":
-            return redirect("today.html")
-        else:
-            birthday_input = request.form.get("birthday") # Capture inputted DOB '2020-12-28'
-            birthday_split = birthday_input.split('-')  # Split DOB into list of year, month, day
-            if len(birthday_split) == 3:    # If month
-                day = birthday_split[2]
-                month = birthday_split[1]
-                # Query database
-                querys = database_query(month, day)
-                flash('Success!', 'success')
-                return render_template("birthday.html", month = month, day = day, querys = querys)
-            else:
-                # Query database
-                querys = database_query(month, day)
-                return render_template("birthday.html", month = month, day = day, querys = querys)
-
-    else:
-        flash('Use form to sumbit date', 'error')
-        return redirect("/today")
-
-# Second verison of birthday with revamped form
-@app.route("/birthday2", methods = ["GET", "POST"])
 def birthday2():
     if request.method == "POST":
-        if request.form.get("birthday2") == "":
+        # If request is empty, return to today
+        if request.form.get("navBarSearch") == "":
             return redirect("today.html")
         else:
             formStringMonth = request.form.get("month")
-            formIntDay = request.form.get("day")
+            formday = request.form.get("day")
             # Convert month from string to int
             monthSwitch = {"January": "01", "February": "02", "March": "03", "April" : "04", 
             "May" : "05", "June" : "06", "July" : "07", "August" : "08", 
             "September" : "09", "October" : "10", "November" : "11", "December" : "12"}
-            formIntMonth = monthSwitch[formStringMonth]
-            querys = (formIntMonth, formIntDay)
-            return "Month: " + formIntMonth + "Day: " + formIntDay
-                # # Query database
-                # querys = database_query(month, day)
-                # flash('Success!', 'success')
-                # return render_template("birthday.html", month = month, day = day, querys = querys)
-            # else:
-                # # Query database
-                # querys = database_query(month, day)
-                # return render_template("birthday.html", month = month, day = day, querys = querys)
-
+            month = monthSwitch[formStringMonth]
+            # Add leading zero to day if day is <10
+            if (int(formday) < 10):
+                day = "0" + str(formday)
+            else:
+                day = formday
+            # Query database
+            querys = (month, day)
+            flash('Success!', 'success')
+            return render_template("birthday.html", month = month, day = day, querys = querys)
     else:
         flash('Use form to sumbit date', 'error')
         return redirect("/today")
@@ -171,9 +129,10 @@ def birthday2():
 #     return render_template("stats.html", entries = num_entries)
 
 # Testing route for bootstrap/css resdesign
-@app.route("/testcss", methods = ["Get", "POST"])
-def testcss():
-    return render_template("testcss.html")
+
+# @app.route("/testcss", methods = ["Get", "POST"])
+# def testcss():
+#     return render_template("testcss.html")
 
 
 # About page for the project
@@ -181,7 +140,6 @@ def testcss():
 def about():
     return render_template("about.html")
     
-
 # TODO:
     # Setup archvie page to access any date of the year (show )
     # Word cloud???

@@ -28,6 +28,16 @@
                 <li class="nav-item active">
                   <a class="nav-link" href="/random">Random</a>
                 </li>
+                <!-- Insert birthday form here -->
+                <form name="navBarSearch" id="form1" action ="/birthday" method = "POST">
+                  <select name="month" id="month">
+                          <option value="" disabled = "" selected="selected">Month</option>
+                  </select>
+                  <select name="day" id="day">
+                      <option value="" disabled = "" selected="selected">Day</option>
+                  </select>
+                    <input type="submit" id = "submit-button" value="Search" disabled="disabled">  
+                </form>
                 <li class="nav-item active">
                   <a class="nav-link" href="/about">About</a>
                 </li>
