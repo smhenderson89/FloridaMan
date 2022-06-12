@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+var monthObject = {
+  "January": 31, "February":  29, "March": 31, "April" : 30, "May" : 31, "June" : 30,
+  "July" : 31, "August" : 31, "September" : 30, "October" : 31, "November" : 30, "December" : 31
+}
+window.onload = function() {
+  var monthSel = document.getElementById("month");
+  var daySel = document.getElementById("day");
+  var submitButton = document.getElementById("submit-button");
+  
+  // Establish subject dropdown menu
+  for (var x in monthObject) {
+    monthSel.options[monthSel.options.length] = new Option(x, x);
+  }
+  monthSel.onchange = function() {
+    daySel.length = 1; // Reset day options to base
+    console.log('Month Value: ',monthSel.value)
+    if (!(submitButton.hasAttribute('disabled'))) { // If submit button is not disabled
+      submitButton.setAttribute("disabled","");
+    }
+
+    // Display correct days per month
+    var daysinMonth = monthObject[monthSel.value];
+    for (let i = 1; i <= daysinMonth; i++) {
+      daySel.options[i] = new Option(i, i)
+    }
+  }
+
+  // When daySel change
+  daySel.onchange = function () {
+    console.log('Month Selected: ', monthSel.value, '| Day Selected: ', daySel.value);
+    // On day selection, check if month and day are not empty strings
+    if (monthSel.value != "" || daySel.value != "") {
+      submitButton.removeAttribute('disabled');
+    }
+  }
+}
+
+function showValues() {
+  event.preventDefault()
+  monthStringForm = document.getElementById("month").value;
+  dayIntForm = document.getElementById("day").value;
+  document.getElementById("month-value").innerHTML = monthStringForm;
+  document.getElementById("day-value").innerHTML = dayIntForm; 
+  console.log(monthStringForm + " " + dayIntForm);
+}
+
+</script>
+</head>   
+<body>
+
+<h1>Month/Day Selector Form</h1>
+<p>Select your Birthday</p>
+
+<form name="form2" id="form2" method = "GET" onsubmit="showValues()">
+  <select name="month" id="month">
+          <option value="" selected="selected">Month</option>
+  </select>
+  <select name="day" id="day">
+      <option value="" selected="selected">Day</option>
+  </select>
+    <input type="submit" id = "submit-button" value="Submit" disabled="disabled"> 
+</form>
+<br>
+<div>Month</div><div id="month-value"></div><br>
+<div>Day</div><div id="day-value"></div>
+
+</body>
+</html>

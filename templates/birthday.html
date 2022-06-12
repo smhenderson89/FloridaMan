@@ -1,29 +1,37 @@
 {% extends "layout.html" %}
 
 {% block title %}
-    Your Birthday
+    Today
 {% endblock %}
 
-
 {% block main %}
-
-<h3> Congrats! Your Birthday Flordia Man Horoscopes for {{month}} - {{day}} are:</h3>
+<div class="container">
+    <h3 id = "title">Congrats! Your Flordia Man Horoscopes for {{month}} - {{day}}:</h3>
+</div>
 <br>
-<table>
-    <tbody>
-    {% for query in querys%}
-        <tr>
-            {{ query[0].title() }} | <a href = "{{ query[1] }}">Link</a>
-            <br><br>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+<div class="container" id = "results">
+    <table class = "table">
+        <thead>
+            <tr></tr>
+        </thead>
+        <tbody>
+        {% for query in querys%}
+            <tr>
+                <th scope="row">
+                    <td>
+                        <a href = "{{ query[1] }}">Link</a>
+                    </td>
+                    <td>
+                        {{ query[0].title() }}  
+                    </td>
+                </th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br>
 
-<form action="/today" method = "post">
-    <input type="submit" value="Return to homepage">
-  </form>
-  
 {% endblock %}
 
 

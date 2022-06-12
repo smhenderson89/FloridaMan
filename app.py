@@ -1,18 +1,22 @@
 from flask import Flask, flash, redirect, url_for, render_template, request, get_flashed_messages
 import sqlite3
-from florida_scrape import florida_results
+from functions.florida_scrape import florida_results
 from datetime import date
 from datetime import datetime
 from pytz import timezone
 import pytz
 import random
 from helpers import database_query, detect
+from dotenv import load_dotenv
+import os
+
 
 # Create connection to flask
 app = Flask(__name__)
 
-## app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-## test remove secret key
+# Setup session key
+load_dotenv()
+app.secret_key = os.getenv('SECRET_KEY')
 
 @app.route("/")
 def home():
@@ -84,45 +88,59 @@ def anydate(datecode):
         flash('Date invalid, must input /MMDD', 'error')
         return redirect("/today")
 
+# Second verison of birthday with revamped navbar form
 @app.route("/birthday", methods = ["GET", "POST"])
 def birthday():
     if request.method == "POST":
-        if request.form.get("birthday") == "":
+        # If request is empty, return to today
+        if request.form.get("navBarSearch") == "":
             return redirect("today.html")
         else:
-            birthday_input = request.form.get("birthday") # Capture inputted DOB '2020-12-28'
-            birthday_split = birthday_input.split('-')  # Split DOB into list of year, month, day
-            if len(birthday_split) == 3:    # If month
-                day = birthday_split[2]
-                month = birthday_split[1]
-                # Query database
-                querys = database_query(month, day)
-                flash('Success!', 'success')
-                return render_template("birthday.html", month = month, day = day, querys = querys, test = birthday_input)
+            formStringMonth = request.form.get("month")
+            formday = request.form.get("day")
+            # Convert month from string to int
+            monthSwitch = {"January": "01", "February": "02", "March": "03", "April" : "04", 
+            "May" : "05", "June" : "06", "July" : "07", "August" : "08", 
+            "September" : "09", "October" : "10", "November" : "11", "December" : "12"}
+            month = monthSwitch[formStringMonth]
+            # Add leading zero to day if day is <10
+            if (int(formday) < 10):
+                day = "0" + str(formday)
             else:
-                # Query database
-                querys = database_query(month, day)
-                return render_template("birthday.html", month = month, day = day, querys = querys, test = birthday_input)
-
+                day = formday
+            # Query database
+            querys = database_query(month, day)
+            flash('Success!', 'success')
+            return render_template("birthday.html", month = month, day = day, querys = querys)
     else:
         flash('Use form to sumbit date', 'error')
         return redirect("/today")
 
-@app.route("/stats", methods = ["GET", "POST"])
-def stats():
-    # Make connection to database
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
+        
+# Possible Stats Page, not developed yet
 
-    num_entries = c.execute("SELECT COUNT(*) FROM headlines;")
+# @app.route("/stats", methods = ["GET", "POST"])
+# def stats():
+#     # Make connection to database
+#     conn = sqlite3.connect('database.db')
+#     c = conn.cursor()
 
-    return render_template("stats.html", entries = num_entries)
+#     num_entries = c.execute("SELECT COUNT(*) FROM headlines;")
 
+#     return render_template("stats.html", entries = num_entries)
+
+# Testing route for bootstrap/css resdesign
+
+# @app.route("/testcss", methods = ["Get", "POST"])
+# def testcss():
+#     return render_template("testcss.html")
+
+
+# About page for the project
 @app.route("/about", methods = ["GET", "POST"])
 def about():
     return render_template("about.html")
     
-
 # TODO:
     # Setup archvie page to access any date of the year (show )
     # Word cloud???

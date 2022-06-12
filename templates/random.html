@@ -6,26 +6,31 @@
 
 {% block main %}
 
-<h3>The Flordia Man Horoscopes for {{month}} - {{day}} are:</h3>
+<div class="container">
+    <h3 id = "title">Flordia Man Horoscopes for {{month}} - {{day}}:</h3>
+</div>
 <br>
-<table>
-    <tbody>
-    {% for query in querys%}
-        <tr>
-            {{ query[0].title() }} | <a href = "{{ query[1] }}">Link</a>
-            <br><br>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
-
-<br>Enter in Birthday:
+<div class="container" id = "results">
+    <table class = "table">
+        <thead>
+            <tr></tr>
+        </thead>
+        <tbody>
+        {% for query in querys%}
+            <tr>
+                <th scope="row">
+                    <td>
+                        <a href = "{{ query[1] }}">Link</a>
+                    </td>
+                    <td>
+                        {{ query[0].title() }}  
+                    </td>
+                </th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
 <br>
-<br>
-<form action="/birthday" method = "post">
-    <input type="date" id="birthday" name="birthday">
-    <input type="submit" value="Submit">
-  </form>
-
 
 {% endblock %}
