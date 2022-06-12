@@ -89,7 +89,7 @@ def anydate(datecode):
 
 # Second verison of birthday with revamped navbar form
 @app.route("/birthday", methods = ["GET", "POST"])
-def birthday2():
+def birthday():
     if request.method == "POST":
         # If request is empty, return to today
         if request.form.get("navBarSearch") == "":
@@ -108,7 +108,7 @@ def birthday2():
             else:
                 day = formday
             # Query database
-            querys = (month, day)
+            querys = database_query(month, day)
             flash('Success!', 'success')
             return render_template("birthday.html", month = month, day = day, querys = querys)
     else:
