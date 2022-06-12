@@ -1,6 +1,6 @@
 from flask import Flask, flash, redirect, url_for, render_template, request, get_flashed_messages
 import sqlite3
-from florida_scrape import florida_results
+from functions.florida_scrape import florida_results
 from datetime import date
 from datetime import datetime
 from pytz import timezone
@@ -9,6 +9,7 @@ import random
 from helpers import database_query, detect
 from dotenv import load_dotenv
 import os
+
 
 # Create connection to flask
 app = Flask(__name__)
