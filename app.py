@@ -11,11 +11,10 @@ from dotenv import load_dotenv
 import os
 
 
-
 # Create connection to flask
 app = Flask(__name__)
 
-# Setup session key / seems not to be loading??
+# Setup session key
 load_dotenv()
 app.secret_key = os.getenv('SECRET_KEY')
 
