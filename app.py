@@ -61,6 +61,7 @@ def random_result():
     # Query database
     querys = database_query(month, day)
 
+    flash("Random day selected!", "success")
     return render_template("random.html", month = month, day = day, querys = querys)
 
 # Return horoscope for specified day
