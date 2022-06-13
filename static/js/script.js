@@ -15,7 +15,7 @@ window.onload = function() {
   }
   monthSel.onchange = function() {
     daySel.length = 1; // Reset day options to base
-    console.log('Month Value: ',monthSel.value)
+    // console.log('Month Value: ',monthSel.value)
     if (!(submitButton.hasAttribute('disabled'))) { // If submit button is not disabled
       submitButton.setAttribute("disabled","");
     }
@@ -29,7 +29,7 @@ window.onload = function() {
 
   // When daySel change
   daySel.onchange = function () {
-    console.log('Month Selected: ', monthSel.value, '| Day Selected: ', daySel.value);
+    // console.log('Month Selected: ', monthSel.value, '| Day Selected: ', daySel.value);
     // On day selection, check if month and day are not empty strings
     if (daySel.value != "") {
       submitButton.removeAttribute('disabled');
