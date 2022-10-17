@@ -7,6 +7,7 @@ from helpers import database_query
 from dotenv import load_dotenv
 import os
 
+
 # Create connection to flask
 app = Flask(__name__)
 
