@@ -1,12 +1,9 @@
-from flask import Flask, flash, redirect, url_for, render_template, request, get_flashed_messages
-import sqlite3
-from functions.florida_scrape import florida_results
-from datetime import date
-from datetime import datetime
+from flask import Flask, flash, redirect, render_template, request
+from datetime import date, datetime
 from pytz import timezone
 import pytz
 import random
-from helpers import database_query, detect
+from helpers import database_query
 from dotenv import load_dotenv
 import os
 

@@ -1,8 +1,8 @@
 # Ignore files to github
 
 __pychache__
-.venv
 venv
 .DS_Store
 .env
 setup.txt
+.venv/.DS_Store
