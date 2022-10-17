@@ -6,3 +6,4 @@ venv
 .DS_Store
 .env
 setup.txt
+.venv/.DS_Store
