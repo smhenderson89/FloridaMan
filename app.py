@@ -114,6 +114,14 @@ def birthday():
         flash('Use form to sumbit date', 'error')
         return redirect("/today")
 
+# About page for the project
+@app.route("/about", methods = ["GET", "POST"])
+def about():
+    return render_template("about.html")
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('error.html'), 404
         
 # Possible Stats Page, not developed yet
 
@@ -132,19 +140,6 @@ def birthday():
 # @app.route("/testcss", methods = ["Get", "POST"])
 # def testcss():
 #     return render_template("testcss.html")
-
-
-# About page for the project
-@app.route("/about", methods = ["GET", "POST"])
-def about():
-    return render_template("about.html")
-    
-# TODO:
-    # Setup archvie page to access any date of the year (show )
-    # Word cloud???
-    # Send Tweet to twitter account
-    # Detect Safari webpage, show hint for how to input dates
-
 
 if __name__ == "__main__":
     app.run(debug=True)
