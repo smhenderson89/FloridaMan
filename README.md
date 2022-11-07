@@ -4,8 +4,8 @@
 <br />
 <div align="center">
 
-  <h3 align="center">FloridaMan - A Google Search Web Scarper</h3>
-  https://media-watch-list.herokuapp.com/
+  <h3 align="center">FloridaMan - A Florida News Story Google Search Web Scarper</h3>
+  https://floridaman.onrender.com/today
 </div>
 
 
@@ -14,6 +14,9 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
+    <li>
+      <a href="#project-demo">Project Demo</a>
+    </li>
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
@@ -34,26 +37,34 @@
   </ol>
 </details>
 
+<!-- Project DEMO -->
+## Project Demo
+
 
 
 <!-- ABOUT THE PROJECT -->
 ## Project Inspiration
 
-![mwl_logo](https://user-images.githubusercontent.com/53064568/146559008-9a81f32e-3a23-426a-8dc5-49e3379bd13b.jpeg)
+![Flordia Logo](https://user-images.githubusercontent.com/53064568/146559008-9a81f32e-3a23-426a-8dc5-49e3379bd13b.jpeg)
 
-Tired of your kid Cars 3 for the 100th time? Excited about the newest Marvel release but not sure it is appropriate for you kid? 
+This website is my Final Project for [CS50 Edx Course 2020](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x).
+My goal was to create a website that would show a user their "Florida Man Horoscope", which I had learned about years back. A Florida Man Horoscope is created by typing in your date of birth into Google + "[Florida Man](https://letmegooglethat.com/?q=Dec+30+florida+man)" and the list of headlines that return are your horoscope. (Here's an [example](https://floridaman.onrender.com/random).)
 
-Media Watch List is a website that aggregates information from movie databases for a user to easily like or add a movie to a watchlist. The market for our project is specifically parents of young children, who need an easy way to save movie recommendations and review relevant information such as ratings before showing their child a new movie. No more scrolling endlessly through various notes in your note app to remember where you stashed recommendations from friends, you can save your movies in an organized and informative way using our website.
+Origin of the Meme: [Know Your Meme](https://knowyourmeme.com/memes/florida-man)
+
+Wikipedia: [Link](https://en.wikipedia.org/wiki/Florida_Man)
+
+To accomplish this I built a [web-scraper](https://en.wikipedia.org/wiki/Web_scraping) that would search for 'Florida Man' headlines and save the results from every day of the year (including leap year). I put those results into a database and any user can query them while searching the website.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Built With
 
-* [React.js](https://reactjs.org/)
-* [Redux](https://redux.js.org/)
-* [Bootstrap](https://getbootstrap.com)
-* [React Icons](https://react-icons.github.io/react-icons/)
-* [Open IMDB](http://www.omdbapi.com/)
+* [Python](https://www.python.org/)
+* [Sqlite3](https://www.sqlite.org/index.html)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [Heroku](https://dashboard.heroku.com/apps)
+* [Render](https://render.com/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -64,30 +75,37 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
+* Download Python ([link])(https://www.python.org/downloads/)
+* Download Flask ([link](https://flask.palletsprojects.com/en/1.1.x/installation/))
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [http://www.omdbapi.com/apikey.aspx](http://www.omdbapi.com/apikey.aspx)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone gh repo clone mwoolf87/media-watchlist 
+   git clone gh repo clone smhenderson89/FloridaMan 
    ```
-3. Install NPM packages
+2. Setup virtual environment: 
+  ```sh
+  . venv/bin/activate
+  ```
+3. Install all pip package requirements:
+#### Windows
+  ```sh
+  pip install -r requirements.txt
+  ```
+#### Mac
    ```sh
-   npm install
+  pip3 install -r requirements.txt
    ```
-4. Enter your API in `MediaList.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
-   const API_ID = 'ENTER YOUR KEY';
-   ```
+4. Setup Environmental varialbe: 
+  ```sh
+  $env:FLASK_APP = "app"
+  ```
+5. Launch Website
+  ```sh
+  "python3 -m flask"
+  ```
+6. Go to location host location, should be running at localhost:5000
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -99,9 +117,9 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] **Stretch Goal:** Add aditional media types - books, music, app
+I'm pretty happy with how the site turned out. There are some sretch goal ideas I have (making a twitter bot to post a new news story everyday, word cloud), but for now it was a great learning experience.
 
-See the [open issues](https://github.com/mwoolf87/media-watchlist/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/smhenderson89/FloridaMan/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
