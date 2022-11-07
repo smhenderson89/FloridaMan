@@ -8,11 +8,6 @@
   https://floridaman.onrender.com/today
 </div>
 
-![image](https://user-images.githubusercontent.com/53064568/200435609-cb46a8aa-8fb8-4be5-bb1f-e83acb4ac0fb.png)
-
-
-
-
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -43,12 +38,10 @@
 <!-- Project DEMO -->
 ## Project Demo
 
-
+![890F1CC5-6E02-46BF-AA7D-8FCB9797CD1C](https://user-images.githubusercontent.com/53064568/200436355-f567cd04-80fe-40e1-be35-e286cbde927d.jpeg)
 
 <!-- ABOUT THE PROJECT -->
 ## Project Inspiration
-
-![Flordia Logo](https://user-images.githubusercontent.com/53064568/146559008-9a81f32e-3a23-426a-8dc5-49e3379bd13b.jpeg)
 
 This website is my Final Project for [CS50 Edx Course 2020](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x).
 My goal was to create a website that would show a user their "Florida Man Horoscope", which I had learned about years back. A Florida Man Horoscope is created by typing in your date of birth into Google + "[Florida Man](https://letmegooglethat.com/?q=Dec+30+florida+man)" and the list of headlines that return are your horoscope. (Here's an [example](https://floridaman.onrender.com/random).)
