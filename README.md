@@ -71,7 +71,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Prerequisites
 
-* Download Python ([link])(https://www.python.org/downloads/)
+* Download Python ([link](https://www.python.org/downloads/))
 * Download Flask ([link](https://flask.palletsprojects.com/en/1.1.x/installation/))
 
 ### Installation
