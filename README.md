@@ -127,13 +127,6 @@ See the [open issues](https://github.com/smhenderson89/FloridaMan/issues) for a 
 Scott Henderson
 Github: [https://github.com/smhenderson89](https://github.com/smhenderson89)
 
-Julia Szymanski
-Github: [https://github.com/julszymanski](https://github.com/julszymanski)
-
-Mike Woolf
-Github: [https://github.com/mwoolf87](https://github.com/mwoolf87)
-
-
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
