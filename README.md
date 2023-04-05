@@ -95,11 +95,11 @@ To get a local copy up and running follow these simple example steps.
    ```
 4. Setup Environmental varialbe: 
   ```sh
-  $env:FLASK_APP = "app"
+  export FLASK_APP=app.py
   ```
 5. Launch Website
   ```sh
-  "python3 -m flask"
+  python3 app.py
   ```
 6. Go to location host location, should be running at localhost:5000
 
