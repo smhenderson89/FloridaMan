@@ -1,18 +1,17 @@
-How to load website locally 
+How to run the website locally
 
-On Windows:
+On macOS:
 
-1) Setup virtual environment: . venv/bin/activate
-2) Install all pip packages: pip install -r requirements.txt
-3) Setup Environmental varialbe: $env:FLASK_APP = "app"
-4) Launch Flask app: flask run
-5) Website should be running on localhost:5000
+1) Install dependencies and create the virtual environment: make install
+2) Start the website: make run
+3) Open http://127.0.0.1:5000 in your browser
+4) Stop the server with Ctrl+C
 
-How to exit virtual environment: deactivate
+On Windows (PowerShell):
 
-On Mac:
-
-1) Setup virtual environment: . venv/bin/activate
-2) Install all pip packages: pip3 install -r requirements.txt
-3) Run "python3 -m flask"
-4) Setup Environmental varialbe: $env:FLASK_APP = "app"
+1) Create a virtual environment: python -m venv .venv
+2) Activate it: .venv\Scripts\Activate.ps1
+3) Install dependencies: python -m pip install -r requirements.txt
+4) Start the website: python app.py
+5) Open http://127.0.0.1:5000 in your browser
+6) Stop the server with Ctrl+C; exit the virtual environment with deactivate
